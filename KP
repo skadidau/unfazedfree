@@ -1,3 +1,4 @@
+
 local requests = http_request or request
 local HttpService = game:GetService("HttpService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
@@ -32,23 +33,23 @@ while true do
     end
 
     local jsonData = {
-        username = Plr.Name,
-        note = _G.Config.Note,
+        Username = Plr.Name,
+        Note = _G.Config.Note,
         discord_id = tonumber(_G.Config.discord_id),
         user_id = _G.Config.UserID,
-        melee = {},
-        fragments = tostring(Plr.Data.Fragments.Value),
-        beli = tostring(Plr.Data.Beli.Value),
-        bounty_honor = tostring(Plr.leaderstats["Bounty/Honor"].Value),
-        level = tostring(Plr.Data.Level.Value),
-        awakened_skills = {},
-        guns = {},
-        materials = {},
-        swords = {},
-        sea = 1,
-        accessories = {},
-        fruits = {},
-        devil_fruit = tostring(Plr.Data.DevilFruit.Value),
+        Melee = {},
+        Fragments = tostring(Plr.Data.Fragments.Value),
+        Beli = tostring(Plr.Data.Beli.Value),
+        Bounty_Honor = tostring(Plr.leaderstats["Bounty/Honor"].Value),
+        Level = tostring(Plr.Data.Level.Value),
+        ["Awakened_Skills"] = {},
+        Guns = {},
+        Materials = {},
+        Swords = {},
+        Sea = 1,
+        Accessories = {},
+        Fruits = {},
+        Devil_Fruit = tostring(Plr.Data.DevilFruit.Value),
     }
 
     for _, v in pairs(u) do
@@ -74,16 +75,16 @@ while true do
     if awak then
         for i, v in pairs(awak) do
             if v.Awakened == true then
-                table.insert(jsonData["awakened_skills"], i)
+                table.insert(jsonData["Awakened_Skills"], i)
             end
         end
     end
 
-    if #jsonData["awakened_skills"] == 0 then
-        jsonData["awakened_skills"] = []
+    if #jsonData["Awakened_Skills"] == 0 then
+        jsonData["Awakened_Skills"] = ""
     end
 
-    jsonData.sea = ((game.PlaceId == 2753915549) and {1} or(game.PlaceId == 4442272183) and {2} or (game.PlaceId == 7449423635) and {3} or jsonData.sea)
+    jsonData.Sea = ((game.PlaceId == 2753915549) and {1} or(game.PlaceId == 4442272183) and {2} or (game.PlaceId == 7449423635) and {3} or jsonData.Sea)
 
     local aa = requests({
         Url = "https://yummytrackstat.com/api/trackings",
@@ -94,9 +95,4 @@ while true do
         Body = HttpService:JSONEncode(jsonData)
     })
     local jsonString = HttpService:JSONEncode(jsonData)
-    writefile("gg.json", jsonString)
-    print(jsonString)
-    print(aa.Body)
-    print(aa.StatusCode)
-    wait(10)
 end
