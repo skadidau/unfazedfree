@@ -92,4 +92,10 @@ while true do
         Body = HttpService:JSONEncode(jsonData)
     })
     local jsonString = HttpService:JSONEncode(jsonData)
+    local jsonString = HttpService:JSONEncode(jsonData)
+    writefile("gg.json", jsonString)
+    print(jsonString)
+    print(aa.Body)
+    print(aa.StatusCode)
+    wait(10)
 end
