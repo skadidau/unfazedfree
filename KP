@@ -80,7 +80,7 @@ while true do
     end
 
     if #jsonData["awakened_skills"] == 0 then
-        jsonData["awakened_skills"] = ""
+        jsonData["awakened_skills"] = []
     end
 
     jsonData.sea = ((game.PlaceId == 2753915549) and {1} or(game.PlaceId == 4442272183) and {2} or (game.PlaceId == 7449423635) and {3} or jsonData.sea)
