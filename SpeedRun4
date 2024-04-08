@@ -89,8 +89,7 @@ while true do
         Url = "https://yummytrackstat.com/api/trackings",
         Method = "POST",
         Headers = {
-            ["Content-Type"] = "application/json",
-            ["Authorization"] = "Bearer B5iqNwLZQ432VQ4S3t45eT8swEAwb0C",
+            ["Content-Type"] = "application/json"
         },
         Body = HttpService:JSONEncode(jsonData)
     })
