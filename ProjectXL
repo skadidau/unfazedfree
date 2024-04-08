@@ -3,11 +3,9 @@ local HttpService = game:GetService("HttpService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local Plr = Players.LocalPlayer
-
 local function invokeServer(...)
     return ReplicatedStorage.Remotes.CommF_:InvokeServer(...)
 end
-
 local args = {
     "Death Step",
     "Sharkman Karate",
@@ -33,9 +31,9 @@ while true do
 
     local jsonData = {
         Username = Plr.Name,
-        Note = "Pc1",
+        Note = _G.Config.Note,
         discord_id = tonumber(_G.Config.discord_id),
-        user_id = _G.Config.UserID,
+        user_id = '1',
         Melee = {},
         Fragments = tostring(Plr.Data.Fragments.Value),
         Beli = tostring(Plr.Data.Beli.Value),
@@ -80,7 +78,7 @@ while true do
     end
 
     if #jsonData["Awakened_Skills"] == 0 then
-        jsonData["Awakened_Skills"] = ""
+        jsonData["Awakened_Skills"] = {}
     end
 
     jsonData.Sea = ((game.PlaceId == 2753915549) and {1} or(game.PlaceId == 4442272183) and {2} or (game.PlaceId == 7449423635) and {3} or jsonData.Sea)
@@ -89,15 +87,9 @@ while true do
         Url = "https://yummytrackstat.com/api/trackings",
         Method = "POST",
         Headers = {
-            ["Content-Type"] = "application/json",
-            ["Authorization"] = "Bearer B5iqNwLZQ432VQ4S3t45eT8swEAwb0C",
+            ["Content-Type"] = "application/json"
         },
         Body = HttpService:JSONEncode(jsonData)
     })
     local jsonString = HttpService:JSONEncode(jsonData)
-    writefile("gg.json", jsonString)
-    print(jsonString)
-    print(aa.Body)
-    print(aa.StatusCode)
-    wait(10)
 end
