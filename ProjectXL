@@ -3,7 +3,6 @@ local HttpService = game:GetService("HttpService")
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local Players = game:GetService("Players")
 local Plr = Players.LocalPlayer
-
 local function invokeServer(...)
     return ReplicatedStorage.Remotes.CommF_:InvokeServer(...)
 end
