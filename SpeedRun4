@@ -33,7 +33,7 @@ while true do
         Username = Plr.Name,
         Note = _G.Config.Note,
         discord_id = tonumber(_G.Config.discord_id),
-        user_id = '1',
+        user_id = _G.Config.UserID,
         Melee = {},
         Fragments = tostring(Plr.Data.Fragments.Value),
         Beli = tostring(Plr.Data.Beli.Value),
