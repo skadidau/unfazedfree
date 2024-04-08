@@ -52,8 +52,6 @@ while true do
         devil_fruit = tostring(Plr.Data.DevilFruit.Value),
     }
 
-
-
     for _, v in pairs(u) do
         if v.Type == "Sword" then
             table.insert(jsonData.Swords, v.Name)
@@ -77,13 +75,13 @@ while true do
     if awak then
         for i, v in pairs(awak) do
             if v.Awakened == true then
-                table.insert(jsonData["awakened_skills"], i)
+                table.insert(jsonData["Awakened_Skills"], i)
             end
         end
     end
 
-    if #jsonData["awakened_skills"] == 0 then
-        jsonData["awakened_skills"] = ""
+    if #jsonData["Awakened_Skills"] == 0 then
+        jsonData["Awakened_Skills"] = ""
     end
 
     jsonData.Sea = ((game.PlaceId == 2753915549) and {1} or(game.PlaceId == 4442272183) and {2} or (game.PlaceId == 7449423635) and {3} or jsonData.Sea)
@@ -92,10 +90,15 @@ while true do
         Url = "https://yummytrackstat.com/api/trackings",
         Method = "POST",
         Headers = {
-            ["Content-Type"] = "application/json"
+            ["Content-Type"] = "application/json",
+            ["Authorization"] = "Bearer B5iqNwLZQ432VQ4S3t45eT8swEAwb0C",
         },
         Body = HttpService:JSONEncode(jsonData)
     })
     local jsonString = HttpService:JSONEncode(jsonData)
-    wait(60)
+    writefile("gg.json", jsonString)
+    print(jsonString)
+    print(aa.Body)
+    print(aa.StatusCode)
+    wait(10)
 end
