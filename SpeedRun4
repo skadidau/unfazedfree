@@ -6,7 +6,6 @@ local Plr = Players.LocalPlayer
 local function invokeServer(...)
     return ReplicatedStorage.Remotes.CommF_:InvokeServer(...)
 end
-print(123)
 local args = {
     "Death Step",
     "Sharkman Karate",
@@ -34,7 +33,7 @@ while true do
         Username = Plr.Name,
         Note = _G.Config.Note,
         discord_id = tonumber(_G.Config.discord_id),
-        user_id = _G.Config.UserID,
+        user_id = '1',
         Melee = {},
         Fragments = tostring(Plr.Data.Fragments.Value),
         Beli = tostring(Plr.Data.Beli.Value),
