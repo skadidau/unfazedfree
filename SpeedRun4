@@ -42,7 +42,7 @@ while true do
         beli = tostring(Plr.Data.Beli.Value),
         bounty_honor = tostring(Plr.leaderstats["Bounty/Honor"].Value),
         level = tostring(Plr.Data.Level.Value),
-        ["awakened_skills"] = {},
+        awakened_skills = {},
         guns = {},
         materials = {},
         swords = {},
