@@ -37,7 +37,7 @@ while wait() do
     local jsonData = {
             Username = Plr.Name,
             Note = _G.Config.Note,
-            discord_id = tonumber(_G.Config.discord_id),
+            discord_id = tostring(_G.Config.discord_id),
             user_id = _G.Config.UserID,
             Melee = {},
             Fragments = tostring(Plr.Data.Fragments.Value),
@@ -101,6 +101,6 @@ while wait() do
         },
         Body = HttpService:JSONEncode(jsonData)
     })
-
-    wait(50)
+    print(aa.Body)
+    wait(10)
 end
